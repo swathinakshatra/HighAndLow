@@ -5,11 +5,11 @@ const jobQueue = new Queue(queueName, {
    
  
   connection: {
-    //password: 'SsotkIrFGNrvdPMVsKJi3KcQPVMwXYTH',
-    socket: {
+    password: 'SsotkIrFGNrvdPMVsKJi3KcQPVMwXYTH',
+    // socket: {
       host: process.env.REDIS_HOST,
       port: process.env.REDIS_PORT
-  },
+  // },
 }});
 
 const addJob = async (name,data) => {
