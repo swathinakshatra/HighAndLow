@@ -9,6 +9,7 @@ const crypto=require('../helpers/crypto');
 const addJob = require('../helpers/producer');
 const redis=require('../helpers/redis');
 router.post('/start', auth, amw(async (req, res) => {
+  
   const userid = req.user.userid;
   const exists = await redis.redishexists("userdata", userid);
   const user = await redis.redishget("userdata", userid);
@@ -66,15 +67,15 @@ router.post('/guess', auth, amw(async (req, res) => {
   return res.status(400).send('Insufficient balance for the bet');
 }
 const adminexists = await redis.redishexists(
-  "adminControls",
-  "Controls"
+  "admincontrols",
+  "controls"
    );
    if (!adminexists) {
      return res.status(400).send("admincontrols not found");
    }
    const adminControls = await redis.redishget(
-    "adminControls",
-    "Controls");
+    "admincontrols",
+    "controls");
    console.log("admincontrols",adminControls)
 
      const nextNumber = Math.floor(Math.random() * 21) + 1;

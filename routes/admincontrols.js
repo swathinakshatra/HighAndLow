@@ -26,8 +26,8 @@ router.post("/addadmincontrols",auth,amw(async (req, res) => {
 
   
   const redisinsert=await redis.redishset(
-    "adminControls",
-    "Controls",JSON.stringify(admincontrols));
+    "admincontrols",
+    "controls",JSON.stringify(admincontrols));
 if(!redisinsert) return res.status(400).send("error saving admincontrols in redis")
   return res.status(200).send(("Admin controls added"));
 }));
@@ -36,8 +36,8 @@ router.post("/getadmincontrols", auth,async (req, res) => {
 
 
   const adminexists = await redis.redishexists(
-    "adminControls",
-    "Controls"
+    "admincontrols",
+    "controls"
   );
   if (!adminexists) {
     return res.status(400).send("admincontrols not found");

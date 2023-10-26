@@ -6,7 +6,6 @@ require('./helpers/cors')(app);
 require('./helpers/db')();
 require('./helpers/redis');
 require('./helpers/routes')(app);
-require('./helpers/validations');
 require('./helpers/publisher');
 
 const port = process.env.PORT||5000;
