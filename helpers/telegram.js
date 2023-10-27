@@ -5,7 +5,7 @@ sendMessage = async (chatID, messaggio, token) => {
     var url =
       "https://api.telegram.org/" + token + "/sendMessage?chat_id=" + chatID;
     url = url + "&text=" + encodeURI(messaggio);
-    // console.log(url);
+    console.log(url);
   await axios(url);
     //console.log("reply",result);
   } catch (err) {

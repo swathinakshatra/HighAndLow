@@ -9,5 +9,4 @@ require('./helpers/routes')(app);
 require('./helpers/publisher');
 
 const port = process.env.PORT || 5000;
-console.log('REDIS_HOST', process.env.REDIS_HOST);
 app.listen(port, () => console.log(`Listening on port ${port}...`));
